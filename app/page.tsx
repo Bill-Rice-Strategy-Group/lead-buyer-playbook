@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { getAllContent, getAllChapters } from '@/lib/chapters';
-import { SITE_URL, BOOK_NAME, AUTHOR, PUBLISHER, OG_IMAGE } from '@/lib/site';
+import { SITE_URL, BOOK_NAME, BOOK_ID, AUTHOR, PUBLISHER, OG_IMAGE } from '@/lib/site';
 
 // Next.js merges `openGraph` shallowly, so respecify the full block here
 // (a partial override would wipe the layout's image/url/siteName).
@@ -24,6 +24,9 @@ function buildBookSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Book',
+    // billrice.com's graph references this exact @id. Without it the two Book
+    // nodes were unlinked, so the hub's reference resolved to nothing.
+    '@id': BOOK_ID,
     name: BOOK_NAME,
     alternateName: 'Lead Buyer Playbook',
     bookEdition: 'First Edition',
@@ -32,12 +35,7 @@ function buildBookSchema() {
     url: `${SITE_URL}/`,
     abstract:
       'The enterprise guide to buying and converting purchased internet leads profitably — treating lead buying as a strategic discipline across market economics, lead quality, fraud controls, compliance, speed-to-lead, omnichannel outreach, CRM/RevOps, forecasting, and sales enablement.',
-    author: {
-      '@type': 'Person',
-      name: AUTHOR.name,
-      url: AUTHOR.url,
-      sameAs: AUTHOR.sameAs,
-    },
+    author: AUTHOR,
     publisher: {
       '@type': 'Organization',
       name: PUBLISHER.name,
