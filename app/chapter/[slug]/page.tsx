@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import type { Metadata } from 'next';
 import { getAllContent, getChapterBySlug, getAdjacentChapters } from '@/lib/chapters';
-import { SITE_URL, BOOK_NAME, AUTHOR, OG_IMAGE } from '@/lib/site';
+import { SITE_URL, BOOK_NAME, BOOK_ID, AUTHOR, OG_IMAGE } from '@/lib/site';
 
 interface ChapterPageProps {
   params: {
@@ -77,10 +77,11 @@ function buildChapterSchema(chapter: {
     url: `${SITE_URL}/chapter/${chapter.slug}`,
     isPartOf: {
       '@type': 'Book',
+      '@id': BOOK_ID,
       name: BOOK_NAME,
       url: `${SITE_URL}/`,
     },
-    author: { '@type': 'Person', name: AUTHOR.name, url: AUTHOR.url },
+    author: AUTHOR,
     inLanguage: 'en-US',
   };
 }
