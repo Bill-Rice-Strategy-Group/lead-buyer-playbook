@@ -20,7 +20,8 @@ export const AUTHOR = {
   '@id': BILL_RICE_ID,
   name: 'Bill Rice',
   url: 'https://billrice.com',
-  // Identity profiles only, all verified 2026-07-29. Removed: billrice.com
+  // Identity profiles only. Entries 1-5 verified 2026-07-29; substack added
+  // 2026-07-31. Removed: billrice.com
   // (that's `url`, not a separate profile) and billricestrategy.com/about (a
   // page about him on a site he owns — that's a relationship, not a sameAs).
   sameAs: [
@@ -29,6 +30,7 @@ export const AUTHOR = {
     'https://x.com/billrice',
     'https://www.youtube.com/@billricestrategy',
     'https://medium.com/@billrice',
+    'https://substack.com/@billrice',
   ],
 } as const;
 
