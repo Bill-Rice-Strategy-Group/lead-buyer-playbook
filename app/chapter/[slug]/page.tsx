@@ -5,6 +5,7 @@ import remarkGfm from 'remark-gfm';
 import type { Metadata } from 'next';
 import { getAllContent, getChapterBySlug, getAdjacentChapters } from '@/lib/chapters';
 import { SITE_URL, BOOK_NAME, BOOK_ID, AUTHOR, OG_IMAGE } from '@/lib/site';
+import { CHAPTER_SEO } from '@/lib/chapter-seo';
 
 interface ChapterPageProps {
   params: {
@@ -38,12 +39,14 @@ export async function generateMetadata({ params }: ChapterPageProps): Promise<Me
     };
   }
 
-  const description = toDescription(chapter.content);
+  const seo = CHAPTER_SEO[chapter.slug];
+  const description = seo?.description ?? toDescription(chapter.content);
   const path = `/chapter/${chapter.slug}`;
 
   return {
-    // Plain string title picks up the root layout's `%s | The Lead Buyer's Playbook` template.
-    title: chapter.title,
+    // Plain string title picks up the root layout's `%s | The Lead Buyer's Playbook` template;
+    // an override is already a full title, so it bypasses the template.
+    title: seo ? { absolute: seo.title } : chapter.title,
     description,
     alternates: { canonical: path },
     openGraph: {

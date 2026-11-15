@@ -26,7 +26,7 @@ But when the business grows from $5M to $50M in revenue, those tactics stop work
 
 Sarah had seen this at three companies in her network just in the past month. Capable marketing leaders who could execute campaigns brilliantly but couldn't answer a simple question: "What's your three-year demand generation strategy?"
 
-The difference between tactical and strategic wasn't sophistication—it was perspective. Tactical thinking optimized for immediate results. Strategic thinking built capabilities that created sustainable advantages.
+The difference between tactical and strategic wasn't sophistication—it was perspective. Tactical thinking optimized for immediate results. Strategic thinking built capabilities that created sustainable advantages. That is the job of a lead strategist: treating lead buying as capability building rather than a stream of purchases, and owning the portfolio, the economics and the forecast behind the pipeline instead of the cost per lead of the next campaign.
 
 Sarah pulled out her notebook and started writing. On the left side: questions she'd been asking herself for the past two years. On the right side: questions she should have been asking.
 
